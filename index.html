@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>土壤板结简易观测 · 改良节点提醒 · 朱奕臻</title>
+<meta name="description" content="南宁周边农户：土壤板结硬度与浇水下渗简易观测，加上改良节点提醒。不做修复工程总包，不卖菌剂，不承诺增产。"/>
+<style>
+:root{--ink:#1c3328;--muted:#5a6d62;--line:#cfe0d6;--bg:#eef6f1;--card:#fbfefb;--accent:#2f6b52;--accent2:#5a9a6a;--warn:#9a6b20}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);line-height:1.65;background:radial-gradient(900px 420px at 10% -10%,#cfe8d8,transparent 55%),radial-gradient(700px 360px at 100% 0,#dcefd8,transparent 48%),var(--bg)}
+.top{position:sticky;top:0;z-index:10;background:rgba(238,246,241,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top-in{max-width:900px;margin:0 auto;padding:10px 16px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.brand{font-weight:800}.nav a{margin-left:6px;text-decoration:none;color:var(--ink);font-size:13px;padding:6px 10px;border-radius:999px}
+.nav a:hover{background:#fff;border:1px solid var(--line)}
+.wrap{max-width:900px;margin:0 auto;padding:18px 16px 56px}
+.kicker{display:inline-block;font-size:12px;font-weight:700;color:var(--accent);background:#e3f0e8;border:1px solid #b9d6c0;border-radius:999px;padding:4px 10px;margin-bottom:10px}
+h1{margin:0 0 10px;font-size:clamp(28px,5vw,40px);line-height:1.2}
+.lead{color:var(--muted);font-size:17px;max-width:42em}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.chip{font-size:12px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 10px;color:var(--muted)}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.btn{appearance:none;border:0;cursor:pointer;font:inherit;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;padding:12px 16px;border-radius:12px}
+.btn-p{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}.btn-g{background:#fff;color:var(--ink);border:1px solid var(--line)}.btn-block{width:100%}
+.warn{margin:16px 0;padding:14px 16px;border-radius:14px;background:#fff8ee;border:1px solid #efd3a8;border-left:6px solid var(--warn)}
+.warn h2{margin:0 0 6px;font-size:16px;color:var(--warn)}
+.grid{display:grid;gap:12px}@media(min-width:760px){.g2{grid-template-columns:1.05fr .95fr}.g3{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:0 8px 24px rgba(28,51,40,.05)}
+.card h2{margin:0 0 8px;font-size:18px}.card p,.card li{color:var(--muted)}
+.risk{padding:12px;border-radius:14px;background:#fff;border:1px dashed var(--line);text-align:center}
+.risk b{display:block;font-size:17px;color:var(--accent);margin-bottom:4px}
+.q{margin:0 0 10px;padding:10px 12px;background:#e3f0e8;border-left:3px solid var(--accent);border-radius:0 10px 10px 0}
+.q cite{display:block;margin-top:4px;font-style:normal;font-size:12px;color:var(--muted)}
+.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+.steps li{position:relative;padding:10px 10px 10px 46px;border:1px solid var(--line);border-radius:12px;margin-bottom:8px;background:#fff}
+.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:10px;top:10px;width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+label.ck{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1px solid var(--line);border-radius:12px;margin:0 0 8px;background:#fff;cursor:pointer}
+label.ck input{margin-top:3px;width:18px;height:18px;accent-color:var(--accent)}
+.field{margin:0 0 10px}.field>span{display:block;font-size:13px;font-weight:700;margin-bottom:4px}
+.field input,.field select,.field textarea{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fff}
+.field textarea{min-height:70px;resize:vertical}
+.row2{display:grid;gap:10px}@media(min-width:560px){.row2{grid-template-columns:1fr 1fr}}
+.bar{height:8px;background:#d7e8de;border-radius:999px;overflow:hidden;margin:6px 0 8px}.bar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,#5a9a6a,var(--accent))}
+.msg{min-height:1.3em;font-weight:700}.ok{color:#0b6b4a}.err{color:#8b2e1a}
+.item{border:1px dashed var(--line);border-radius:10px;padding:8px 10px;margin-bottom:8px;font-size:13px;background:#fff}.item b{display:block}
+.sec{margin-top:16px}footer{margin-top:22px;padding-top:12px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+code{background:#fff;border:1px solid var(--line);border-radius:6px;padding:1px 6px}
+.tl{border-left:3px solid #8fbc8f;margin:8px 0 0 6px;padding-left:14px}.tl li{margin:0 0 10px;list-style:none}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in"><div class="brand">板结观测 · 改良节点</div><nav class="nav"><a href="#check">板结自查</a><a href="#obs">田间观察</a><a href="#book">预约试填</a><a href="#hist">本机记录</a></nav></div></header>
+<main class="wrap">
+<section>
+  <div class="kicker">沈阳农业大学 · 土地与环境学院 · 环境科学 · 课程 MVP</div>
+  <h1>地硬了先记一笔，再谈改良</h1>
+  <p class="lead">给<strong>南宁周边</strong>长期种经济作物的农户：用脚踩/插棍感受板结、看浇水下渗，把改良节点勾在一页上。先观测、建信任，不做修复工程总包，不卖菌剂，不承诺增产。</p>
+  <div class="chips"><span class="chip">朱奕臻 · 2024196078</span><span class="chip">改善土壤板结退化小组</span><span class="chip">轻工具 · 非工程总包</span></div>
+  <div class="cta"><a class="btn btn-p" href="#check">勾板结自查</a><a class="btn btn-g" href="#obs">记田间观察</a></div>
+</section>
+<section class="warn">
+  <h2>边界三句</h2>
+  <ul>
+    <li>只做板结硬度与下渗的<strong>简易观测</strong>，以及改良节点提醒（何时复看、何时问农技员）。</li>
+    <li>不做土壤修复工程总包、不开实验室出正式检测报告、不卖菌剂肥料。</li>
+    <li>不承诺产量与品质数字；记录只存在本机浏览器。</li>
+  </ul>
+</section>
+<section class="sec grid g3">
+  <div class="risk"><b>板结硬度</b><span style="color:var(--muted);font-size:13px">脚踩/插棍人话档，不写实验室指标</span></div>
+  <div class="risk"><b>浇水下渗</b><span style="color:var(--muted);font-size:13px">水趴多久、渗得快慢，方便对照</span></div>
+  <div class="risk"><b>改良节点</b><span style="color:var(--muted);font-size:13px">复看日期勾上，别只靠口头记</span></div>
+</section>
+<section class="sec grid g2">
+  <article class="card">
+    <h2>要对上的三件事</h2>
+    <blockquote class="q">连年偏施化肥，地变硬、根扎不下去，产量品质都受影响。<cite>第1周假设 · 板结酸化</cite></blockquote>
+    <blockquote class="q">听说过测土配方、微生物修复，但缺低成本、易操作的第一步。<cite>第1周假设 · 缺易操作方案</cite></blockquote>
+    <blockquote class="q">不愿一上来买工程或菌剂，先想搞清「自己地有多硬」。<cite>第1周假设 · 先观测再建信任</cite></blockquote>
+  </article>
+  <article class="card">
+    <h2>三步</h2>
+    <ol class="steps">
+      <li>在板结自查里勾完五项（地块、硬度、下渗、复看节点、边界）。</li>
+      <li>浇水或雨后补一条田间观察，人话档位即可。</li>
+      <li>愿试填留手机；正式测土/施工另找土肥站或持证单位。</li>
+    </ol>
+  </article>
+</section>
+<section class="sec card" id="check">
+  <h2>板结自查（五项）</h2>
+  <div class="bar"><i id="bar"></i></div>
+  <p id="barText" style="margin:0 0 10px;font-size:13px;color:var(--muted)">已看 0 / 5</p>
+  <form id="checkForm">
+    <label class="ck"><input type="checkbox" name="c1"/> 地块/作物已写清（如武鸣某村沃柑）</label>
+    <label class="ck"><input type="checkbox" name="c2"/> 用脚踩或插棍感受过表层硬度（人话档，不做仪器）</label>
+    <label class="ck"><input type="checkbox" name="c3"/> 观察过浇水或雨后下渗快慢（水趴着多久）</label>
+    <label class="ck"><input type="checkbox" name="c4"/> 写下一次复看/问农技员的日期节点</label>
+    <label class="ck"><input type="checkbox" name="c5"/> 边界自检：本页不做工程总包、不卖菌剂、不承诺增产</label>
+    <div class="row2">
+      <label class="field"><span>地块 / 作物</span><input name="plot" placeholder="例如：武鸣沃柑东坡"/></label>
+      <label class="field"><span>填写人</span><input name="who" placeholder="户主 / 家属"/></label>
+    </div>
+    <div class="row2">
+      <label class="field"><span>手感硬度（人话）</span>
+        <select name="hard" required>
+          <option value="">请选择</option>
+          <option>还算松</option>
+          <option>有点硬</option>
+          <option>很硬，插棍费劲</option>
+          <option>当时没试，稍后补</option>
+        </select>
+      </label>
+      <label class="field"><span>计划复看日</span><input type="date" name="day"/></label>
+    </div>
+    <button class="btn btn-p btn-block" type="submit">保存自查到本机</button>
+    <p class="msg" id="checkMsg"></p>
+  </form>
+</section>
+<section class="sec card" id="obs">
+  <h2>田间观察（浇水/雨后）</h2>
+  <form id="obsForm">
+    <div class="row2">
+      <label class="field"><span>观察时间</span><input type="datetime-local" name="when" required/></label>
+      <label class="field"><span>地块</span><input name="plot" required placeholder="与上面自查同一地块"/></label>
+    </div>
+    <div class="row2">
+      <label class="field"><span>下渗情况</span>
+        <select name="seep" required>
+          <option value="">请选择</option>
+          <option>渗得较快</option>
+          <option>一般</option>
+          <option>水趴很久</option>
+          <option>没浇水/没下雨，稍后补</option>
+        </select>
+      </label>
+      <label class="field"><span>根系/出苗观察（可选）</span>
+        <select name="root">
+          <option value="">未看</option>
+          <option>看起来还行</option>
+          <option>感觉扎根吃力（只观察）</option>
+        </select>
+      </label>
+    </div>
+    <label class="field"><span>一句备注</span><textarea name="note" placeholder="例如：雨后东坡积水；脚踩比西坡硬。不写菌剂牌子。"></textarea></label>
+    <button class="btn btn-p btn-block" type="submit">保存观察记录</button>
+    <p class="msg" id="obsMsg"></p>
+  </form>
+</section>
+<section class="sec card">
+  <h2>本周节奏</h2>
+  <ul class="tl">
+    <li><strong>Day1–2</strong>定板结自查五项与观察档位，绿色主调。</li>
+    <li><strong>Day3–5</strong>上线单页并自测保存、手机号校验。</li>
+    <li><strong>Day6–7</strong>电话试填提纲，样本只计南宁周边农户主责人。</li>
+  </ul>
+</section>
+<section class="sec card" id="book">
+  <h2>预约两周试填</h2>
+  <form id="bookForm">
+    <div class="row2">
+      <label class="field"><span>怎么称呼</span><input name="name" required/></label>
+      <label class="field"><span>手机号</span><input name="phone" required pattern="1[3-9]\d{9}" placeholder="11位"/></label>
+    </div>
+    <label class="field"><span>最想先搞清的一件事</span><textarea name="wish" placeholder="例如：地有多硬；多久复看一次；要不要先测土"></textarea></label>
+    <button class="btn btn-p btn-block" type="submit">留下预约（仅存本机）</button>
+    <p class="msg" id="bookMsg"></p>
+    <p style="font-size:12px;color:var(--muted)">朱奕臻 · 13087901023 · 改善土壤板结退化小组 · 土地与环境学院</p>
+  </form>
+</section>
+<section class="sec card" id="hist">
+  <h2>本机最近记录</h2>
+  <div id="list"></div>
+  <button class="btn btn-g" type="button" id="clear">清空本机记录</button>
+</section>
+<footer>
+  <p>朱奕臻（学号 2024196078）· 土壤板结简易观测·改良节点轻提醒 · 路径 B</p>
+  <p>公网：<code>https://hjw-create.github.io/zhuyz-banjie-mvp/</code></p>
+</footer>
+</main>
+<script>
+(function(){
+  var KEY='zhuyz_banjie_v1';
+  function load(){try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){return[]}}
+  function save(list){localStorage.setItem(KEY,JSON.stringify(list.slice(0,40)));render()}
+  function stamp(){var d=new Date(),p=function(n){return n<10?'0'+n:''+n};return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())+' '+p(d.getHours())+':'+p(d.getMinutes())}
+  function render(){var list=load(),box=document.getElementById('list');if(!list.length){box.innerHTML="<p style='color:var(--muted);font-size:13px'>还没有记录。先勾板结自查或记一条观察。</p>";return}box.innerHTML=list.map(function(r){return "<div class='item'><b>"+r.type+" · "+r.at+"</b>"+r.summary+"</div>"}).join('')}
+  function bar(){var boxes=document.querySelectorAll('#checkForm input[type=checkbox]');var n=0;boxes.forEach(function(b){if(b.checked)n++});document.getElementById('bar').style.width=(n/boxes.length*100)+'%';document.getElementById('barText').textContent='已看 '+n+' / '+boxes.length}
+  document.querySelectorAll('#checkForm input[type=checkbox]').forEach(function(b){b.addEventListener('change',bar)});bar();
+  document.getElementById('checkForm').onsubmit=function(e){e.preventDefault();var fd=new FormData(e.target);var n=['c1','c2','c3','c4','c5'].filter(function(k){return fd.get(k)}).length;var msg=document.getElementById('checkMsg');if(n<5){msg.className='msg err';msg.textContent='五项都看过再保存。';return}var list=load();list.unshift({type:'板结自查',at:stamp(),summary:'地块：'+(fd.get('plot')||'未填')+'；硬度：'+fd.get('hard')+'；复看：'+(fd.get('day')||'未填')+'；填写人：'+(fd.get('who')||'未填')});save(list);msg.className='msg ok';msg.textContent='自查已保存在本机。本页不卖菌剂、不承诺增产。'};
+  document.getElementById('obsForm').onsubmit=function(e){e.preventDefault();var fd=new FormData(e.target);var list=load();list.unshift({type:'田间观察',at:stamp(),summary:'时间：'+fd.get('when')+'；地块：'+fd.get('plot')+'；下渗：'+fd.get('seep')+'；根系：'+(fd.get('root')||'未看')+'；备注：'+((fd.get('note')||'无').toString().trim()||'无')});save(list);document.getElementById('obsMsg').className='msg ok';document.getElementById('obsMsg').textContent='已保存。正式测土请联系土肥站/农技员。'};
+  document.getElementById('bookForm').onsubmit=function(e){e.preventDefault();var fd=new FormData(e.target);var phone=(fd.get('phone')||'').toString();var msg=document.getElementById('bookMsg');if(!/^1[3-9]\d{9}$/.test(phone)){msg.className='msg err';msg.textContent='请填写11位手机号。';return}var list=load();list.unshift({type:'预约试填',at:stamp(),summary:'称呼：'+fd.get('name')+'；手机：'+phone+'；想搞清：'+((fd.get('wish')||'未写').toString().trim()||'未写')});save(list);msg.className='msg ok';msg.textContent='预约草稿在本机。';e.target.reset()};
+  document.getElementById('clear').onclick=function(){if(!confirm('清空本机记录？'))return;localStorage.removeItem(KEY);render()};
+  render();
+})();
+</script>
+</body>
+</html>
